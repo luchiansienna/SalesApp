@@ -30,12 +30,6 @@ namespace SalesApp.Services
         }
         public long CountAllRecords<T, TClassMap>(string csvPath, int pageIndex, int pageSize) where TClassMap : ClassMap
         {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
-            {
-                HasHeaderRecord = true,
-                Delimiter = ",",
-                PrepareHeaderForMatch = (header) => header.Header.Trim()
-            };
             using (var streamReader = fileManager.StreamReader(csvPath, Encoding.Latin1))
             using (var csvReader = new CsvReader(streamReader, config))
             {
