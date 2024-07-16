@@ -11,5 +11,7 @@ We would like to see the best of breed techniques and industry best practice uti
 
 Summary:
 ▪ Design the application, there are no barriers or limitations to the design
+
 ▪ Spend less than 4 hours on the exercise
+
 ▪ Microsoft web technologies should be used
