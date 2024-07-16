@@ -1,0 +1,6 @@
+@SalesApp_HostAddress = http://localhost:5278
+
+GET {{SalesApp_HostAddress}}/sales/
+Accept: application/json
+
+###
