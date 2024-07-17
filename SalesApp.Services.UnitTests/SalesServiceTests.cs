@@ -25,7 +25,7 @@ namespace SalesApp.Services.UnitTests
         {
            string fakeFileContents = "Segment,Country, Product , Discount Band ,Units Sold,Manufacturing Price,Sale Price,Date\r\nGovernment,Canada, Carretera , None ,1618.5,£3.00,£20.00,01/01/2014";
             var _salesService = SetupService(fakeFileContents);
-            var result = _salesService.CountAllRecords<Sale,SaleClassMap>("test.txt",0 , 10);
+            var result = _salesService.CountAllRecords<Sale,SaleClassMap>("test.txt");
 
             Assert.That(result, Is.EqualTo(1));
         }

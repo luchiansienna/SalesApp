@@ -28,7 +28,7 @@ namespace SalesApp.Services
                 return csvReader.GetRecords<T>().Skip(pageIndex * pageSize).Take(pageSize).ToList();
             }
         }
-        public long CountAllRecords<T, TClassMap>(string csvPath, int pageIndex, int pageSize) where TClassMap : ClassMap
+        public long CountAllRecords<T, TClassMap>(string csvPath) where TClassMap : ClassMap
         {
             using (var streamReader = fileManager.StreamReader(csvPath, Encoding.Latin1))
             using (var csvReader = new CsvReader(streamReader, config))

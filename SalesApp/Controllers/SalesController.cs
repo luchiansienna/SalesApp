@@ -25,7 +25,7 @@ namespace SalesApp.Controllers
         {
             var salesCSVPath = _configuration["SalesCSVPath"];
             var salesData = _salesService.FetchFromCSVFile<Sale, SaleClassMap>(salesCSVPath, pageIndex, pageSize);
-            var allRowsCount = _salesService.CountAllRecords<Sale, SaleClassMap>(salesCSVPath, pageIndex, pageSize);
+            var allRowsCount = _salesService.CountAllRecords<Sale, SaleClassMap>(salesCSVPath);
             return Ok(new SalesDataDTO() { Data = salesData, Count = allRowsCount });
         }
 
