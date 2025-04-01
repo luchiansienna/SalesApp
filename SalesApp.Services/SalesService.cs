@@ -34,12 +34,11 @@ namespace SalesApp.Services
         {
             using var salesRepository = new DataRepository(_fileManager, _configuration);
             var records = salesRepository.GetRecords<Sale>(cancellationToken);
-
             records = ApplyFilters(records, filter);
-
+            records = records.OrderByDescending(x => x.Date);
             if (filter.PageIndex is not null && filter.PageSize is not null)
                 records = records.Skip((int)filter.PageIndex * (int)filter.PageSize).Take((int)filter.PageSize);
-
+            
             return (await records.ToListAsync(cancellationToken)).TrimAllStringFields();
         }
 
@@ -47,7 +46,6 @@ namespace SalesApp.Services
         {
             using var salesRepository = new DataRepository(_fileManager, _configuration);
             var records = salesRepository.GetRecords<Sale>(cancellationToken);
-
             records = ApplyFilters(records, filter);
 
             return await records.CountAsync(cancellationToken);
