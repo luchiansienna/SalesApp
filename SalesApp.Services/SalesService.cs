@@ -2,6 +2,7 @@
 using SalesApp.Services.Contracts;
 using SalesApp.Domain;
 using SalesApp.Infrastructure;
+using SalesApp.Domain.Extensions;
 
 namespace SalesApp.Services
 {
@@ -39,7 +40,7 @@ namespace SalesApp.Services
             if (filter.PageIndex is not null && filter.PageSize is not null)
                 records = records.Skip((int)filter.PageIndex * (int)filter.PageSize).Take((int)filter.PageSize);
 
-            return await records.ToListAsync(cancellationToken);
+            return (await records.ToListAsync(cancellationToken)).TrimAllStringFields();
         }
 
         public async Task<long> Count(SalesFilter filter, CancellationToken cancellationToken = default)
