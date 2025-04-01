@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using SalesApp.Services.Contracts;
+using System.Text;
 
 namespace SalesApp.Services
 {

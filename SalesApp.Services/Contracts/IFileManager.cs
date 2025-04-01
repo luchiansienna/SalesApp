@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace SalesApp.Services
+namespace SalesApp.Services.Contracts
 {
     public interface IFileManager
     {
