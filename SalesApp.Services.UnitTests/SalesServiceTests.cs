@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Moq;
-using SalesApp.Domain;
 using SalesApp.Services.Contracts;
 using System.Text;
 
@@ -8,7 +7,7 @@ namespace SalesApp.Services.UnitTests
 {
     public class Tests
     {
-        SalesService SetupService(string content )
+        SalesService SetupService(string content)
         {
             var mockFileManager = new Mock<IFileManager>();
             var inMemorySettings = new Dictionary<string, string?>
@@ -35,7 +34,7 @@ namespace SalesApp.Services.UnitTests
         {
            string fakeFileContents = "Segment,Country, Product , Discount Band ,Units Sold,Manufacturing Price,Sale Price,Date\r\nGovernment,Canada, Carretera , None ,1618.5,£3.00,£20.00,01/01/2014";
             var _salesService = SetupService(fakeFileContents);
-            var result = await _salesService.Count();
+            var result = await _salesService.Count(new SalesFilter() { });
 
             Assert.That(result, Is.EqualTo(1));
         }

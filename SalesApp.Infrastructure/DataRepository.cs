@@ -10,30 +10,29 @@ namespace SalesApp.Infrastructure
 {
     public class DataRepository : IDataRepository, IDisposable
     {
-        private readonly IFileManager fileManager;
+        private readonly IFileManager _fileManager;
         private readonly CsvConfiguration config;
         private readonly string salesCSVPath;
-        private StreamReader? streamReader;
-        private CsvReader? csvReader;
+        private StreamReader? _streamReader;
+        private CsvReader? _csvReader;
         private bool disposed = false;
-
         public DataRepository(IFileManager fileManager, IConfiguration configuration)
         {
-            this.fileManager = fileManager;
-            this.config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
                 Delimiter = ",",
                 PrepareHeaderForMatch = (header) => header.Header.Trim()
             };
             salesCSVPath = configuration["SalesCSVPath"] ?? throw new Exception("SalesCSVPath not present in the configuration file.");
+            _fileManager = fileManager;
         }
 
         public IAsyncEnumerable<T> GetRecords<T>(CancellationToken cancellationToken)
         {
-            streamReader = fileManager.StreamReader(salesCSVPath, Encoding.Latin1);
-            csvReader = new CsvReader(streamReader, config);
-            return csvReader.GetRecordsAsync<T>(cancellationToken);
+            _streamReader = _fileManager.StreamReader(salesCSVPath, Encoding.Latin1);
+            _csvReader = new CsvReader(_streamReader, config);
+            return _csvReader.GetRecordsAsync<T>(cancellationToken);
         }
 
         protected virtual void Dispose(bool disposing)
@@ -42,8 +41,8 @@ namespace SalesApp.Infrastructure
             {
                 if (disposing)
                 {
-                    streamReader?.Dispose();
-                    csvReader?.Dispose();
+                    _streamReader?.Dispose();
+                    _csvReader?.Dispose();
                 }
                 disposed = true;
             }
