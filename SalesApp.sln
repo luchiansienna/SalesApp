@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Domain", "SalesApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Services.UnitTests", "SalesApp.Services.UnitTests\SalesApp.Services.UnitTests.csproj", "{8D1DBA76-9E87-4A3B-99FE-D42B910A7C57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Infrastructure", "SalesApp.Infrastructure\SalesApp.Infrastructure.csproj", "{DB2B3B45-DEA6-4A1A-8A8A-2CB81CE44969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8D1DBA76-9E87-4A3B-99FE-D42B910A7C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D1DBA76-9E87-4A3B-99FE-D42B910A7C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D1DBA76-9E87-4A3B-99FE-D42B910A7C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2B3B45-DEA6-4A1A-8A8A-2CB81CE44969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2B3B45-DEA6-4A1A-8A8A-2CB81CE44969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2B3B45-DEA6-4A1A-8A8A-2CB81CE44969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2B3B45-DEA6-4A1A-8A8A-2CB81CE44969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

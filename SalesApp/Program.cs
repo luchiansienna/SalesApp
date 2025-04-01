@@ -1,3 +1,5 @@
+using SalesApp.Infrastructure;
+using SalesApp.Infrastructure.Contracts;
 using SalesApp.Services;
 using SalesApp.Services.Contracts;
 
@@ -8,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISalesService, SalesService>();
+builder.Services.AddScoped<IDataRepository, DataRepository>();
 builder.Services.AddScoped<IFileManager, FileManager>();
 
 

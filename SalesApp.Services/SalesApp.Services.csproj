@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SalesApp.Domain\SalesApp.Domain.csproj" />
+    <ProjectReference Include="..\SalesApp.Infrastructure\SalesApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
