@@ -48,10 +48,10 @@ namespace SalesApp.Controllers
         {
             var salesData = await _salesService.GetSales(new SalesFilter(), cancellationToken: cancellationToken);
             var types = new { 
-                Segments = salesData.Select(s => s.Segment.Trim()).Where(s => !string.IsNullOrEmpty(s)).Distinct(),
-                Countries = salesData.Select(s => s.Country.Trim()).Where(s => !string.IsNullOrEmpty(s)).Distinct(),
-                Products = salesData.Select(s => s.Product.Trim()).Where(s => !string.IsNullOrEmpty(s)).Distinct(),
-                DiscountBands = salesData.Select(s => s.DiscountBand.Trim()).Where(s => !string.IsNullOrEmpty(s)).Distinct()
+                Segments = salesData.Select(s => s.Segment).Where(s => !string.IsNullOrEmpty(s)).Distinct(),
+                Countries = salesData.Select(s => s.Country).Where(s => !string.IsNullOrEmpty(s)).Distinct(),
+                Products = salesData.Select(s => s.Product).Where(s => !string.IsNullOrEmpty(s)).Distinct(),
+                DiscountBands = salesData.Select(s => s.DiscountBand).Where(s => !string.IsNullOrEmpty(s)).Distinct()
             };
 
             return Ok(types);
